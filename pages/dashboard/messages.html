@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artist &amp; Concierge Messages | Aurelle Bride Portal</title>
+  <meta name="description" content="Chat directly with your lead bridal makeup artist Aurelia Vance and the Aurelle studio concierge. Book your private bridal suite at Aurelle Bridal Studio.">
+  <link rel="canonical" href="https://aurellebridal.studio/pages/dashboard/messages.html">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../../assets/css/rtl.css">
+  <link rel="stylesheet" href="../../assets/css/dashboard.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="dash-shell">
+    <aside class="dash-sidebar" aria-label="Bride Portal Sidebar">
+      <div class="dash-sidebar-header">
+        <a href="../index.html" class="brand-logo">
+          <span class="brand-monogram">A</span>
+          <span class="brand-text">
+            <span class="brand-name">Aurelle</span>
+            <span class="brand-sub">Bride Portal</span>
+          </span>
+        </a>
+        <button type="button" class="icon-btn" data-dash-collapse aria-label="Collapse Sidebar">⇄</button>
+      </div>
+
+      <nav class="dash-nav" aria-label="Bride Dashboard Navigation">
+        <span class="dash-nav-label">My Bridal Suite</span>
+        <a href="index.html" class="dash-nav-link"><span class="dash-link-text">Overview</span></a>
+        <a href="book-trial.html" class="dash-nav-link"><span class="dash-link-text">Book Trial</span></a>
+        <a href="my-looks.html" class="dash-nav-link"><span class="dash-link-text">My Looks &amp; Moodboard</span></a>
+        <a href="appointments.html" class="dash-nav-link"><span class="dash-link-text">Appointments</span></a>
+        <a href="payments.html" class="dash-nav-link"><span class="dash-link-text">Payments &amp; Invoices</span></a>
+        <a href="messages.html" class="dash-nav-link is-active"><span class="dash-link-text">Artist Messages</span></a>
+        <span class="dash-nav-label">Dossier &amp; Preferences</span>
+        <a href="profile.html" class="dash-nav-link"><span class="dash-link-text">Bride Profile</span></a>
+        <a href="settings.html" class="dash-nav-link"><span class="dash-link-text">Settings</span></a>
+        <a href="admin/index.html" class="dash-nav-link"><span class="dash-link-text">Studio Admin View</span></a>
+      </nav>
+
+      <div class="dash-sidebar-footer">
+        <a href="../login.html" class="btn btn--outline w-full">Sign Out</a>
+      </div>
+    </aside>
+
+    <div class="dash-main">
+      <header class="dash-topbar">
+        <div class="dash-topbar-start">
+          <button type="button" class="icon-btn" data-dash-toggle aria-label="Toggle Sidebar Menu">☰</button>
+          <div class="dash-search">
+            <input type="search" placeholder="Search conversation history..." aria-label="Search">
+          </div>
+        </div>
+        <div class="dash-topbar-end">
+          <button type="button" class="icon-btn" data-theme-toggle aria-label="Toggle Theme">☾</button>
+          <button type="button" class="icon-btn" data-rtl-toggle aria-label="Toggle RTL">RTL</button>
+          <a href="profile.html" class="dash-user-pill">
+            <span class="brand-monogram">PS</span>
+            <span class="dash-user-name">Priya Sharma</span>
+          </a>
+        </div>
+      </header>
+
+      <main id="main-content" class="dash-content">
+        <div class="dash-page-head">
+          <div>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="index.html">Bride Portal</a>
+              <span class="breadcrumb-sep">/</span>
+              <span aria-current="page">Direct Artist Thread</span>
+            </nav>
+            <h1>Atelier Concierge &amp; <span class="script-accent">Artist</span> Thread</h1>
+            <p>Encrypted direct thread with Aurelia Vance (Creative Director) &amp; Roshni Kapoor (Draping).</p>
+          </div>
+        </div>
+
+        <div class="chat-box" aria-label="Bridal Artist Chat Thread">
+          <div class="chat-messages" id="dashChatMessages" aria-live="polite">
+            <div class="chat-bubble chat-bubble--incoming">
+              <p>Welcome to your private suite thread, Priya! I have reviewed your uploaded crimson lehenga border and kundan mathapatti. For your Nov 24 trial, we have custom-mixed our Warm Honey #04 Silicone Airbrush Elixir and Oxblood Velvet #12 stain.</p>
+              <span class="chat-meta">Aurelia Vance (Creative Director) • Nov 16, 11:20 AM</span>
+            </div>
+
+            <div class="chat-bubble chat-bubble--outgoing">
+              <p>Thank you so much, Aurelia! My mother also asked if Roshni can pin my second organza dupatta over my right shoulder so it doesn&rsquo;t tug on my low jasmine chignon during the pheras.</p>
+              <span class="chat-meta">Priya Sharma • Nov 17, 02:45 PM</span>
+            </div>
+
+            <div class="chat-bubble chat-bubble--incoming">
+              <p>Of course! Roshni has added hidden silicone weight-bearing shoulder loops to your draping blueprint so your crown feels 100% weightless.</p>
+              <span class="chat-meta">Aurelle Concierge • Nov 17, 03:02 PM</span>
+            </div>
+          </div>
+
+          <form class="chat-composer" id="dashChatForm" action="#" method="post">
+            <label for="dashChatInput" class="sr-only">Write a message to your bridal artist</label>
+            <input type="text" id="dashChatInput" class="form-control" placeholder="Type a note for Aurelia Vance or attach look feedback..." required>
+            <button type="submit" class="btn btn--primary">Send Message</button>
+          </form>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="../../assets/js/plugins/aurelle-plugins.js"></script>
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/dashboard.js"></script>
+</body>
+</html>

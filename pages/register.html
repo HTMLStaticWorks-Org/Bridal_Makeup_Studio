@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Your Bride Profile | Aurelle Bridal Studio</title>
+  <meta name="description" content="Register your private Bride Portal account at Aurelle Bridal Studio to curate your bridal makeup moodboard, book trials, and track your skin prep timeline.">
+  <link rel="canonical" href="https://aurellebridal.studio/pages/register.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Create Your Bride Profile | Aurelle Bridal Studio">
+  <meta property="og:description" content="Join the Aurelle Bride Circle and unlock your private bridal moodboard.">
+  <meta property="og:image" content="../assets/images/misc/og-register.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preload" href="../assets/fonts/cormorant-garamond-600.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../assets/fonts/jost-400.woff" as="font" type="font/woff" crossorigin>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- SHARED HEADER -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="Aurelle Bridal Studio Home">
+        <span class="brand-monogram" aria-hidden="true">A</span>
+        <span class="brand-text">
+          <span class="brand-name">Aurelle</span>
+          <span class="brand-sub">Bridal Studio</span>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="book-now.html" class="nav-link">Book Now</a></li>
+          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="portfolio.html" class="nav-link">Gallery</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="icon-btn" data-theme-toggle aria-label="Toggle Dark or Light Mode">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button type="button" class="icon-btn" data-rtl-toggle aria-label="Toggle Right to Left Layout">RTL</button>
+        <div class="header-ctas">
+          <a href="login.html" class="btn btn--outline">Login</a>
+          <a href="book-now.html?type=trial" class="btn btn--primary">Book a Trial</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       MAIN CONTENT — BRIDE REGISTRATION (UNIQUE PHOTO auth-register)
+       ===================================================================== -->
+  <main id="main-content">
+    <section class="container auth-split" aria-labelledby="register-heading">
+
+      <!-- PHOTO PANEL -->
+      <div class="auth-visual-panel">
+        <picture>
+          <source srcset="../assets/images/auth/auth-register.webp" type="image/webp">
+          <img src="../assets/images/auth/auth-register.jpg" alt="Luxury bridal flatlay with perfume flacon, pearl pins and velvet lipstick" width="800" height="1080" loading="eager">
+        </picture>
+        <div class="auth-visual-caption">
+          <span class="eyebrow">The Aurelle Bride Circle</span>
+          <h2>Curate Your Wedding <span class="script-accent">Moodboard</span></h2>
+          <p class="mt-2">Save look inspirations, track your 90-day skin prep checklist, and book your private 3-hour trial.</p>
+        </div>
+      </div>
+
+      <!-- FORM PANEL -->
+      <div class="surface-box">
+        <span class="eyebrow">Bride Registration</span>
+        <h1 id="register-heading">Create Your Bride <span class="script-accent">Dossier</span></h1>
+        <p class="mt-2 mb-5">Complete your bridal profile to unlock your private dashboard.</p>
+
+        <form action="dashboard/index.html" method="get" data-validate data-redirect="dashboard/index.html" data-success-message="Welcome to Aurelle! Redirecting to your new Bride Dashboard...">
+          <div class="grid grid--2">
+            <div class="form-group">
+              <label for="reg-name" class="form-label">Bride Full Name *</label>
+              <input type="text" id="reg-name" class="form-control" placeholder="e.g., Priya Sharma" required>
+              <span class="form-error">Please enter your full name.</span>
+            </div>
+            <div class="form-group">
+              <label for="reg-date" class="form-label">Wedding Date *</label>
+              <input type="date" id="reg-date" class="form-control" value="2026-12-14" required>
+              <span class="form-error">Please select your wedding date.</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-email" class="form-label">Email Address *</label>
+            <input type="email" id="reg-email" class="form-control" placeholder="priya.sharma@luxurybride.com" required>
+            <span class="form-error">Please enter a valid email address.</span>
+          </div>
+
+          <div class="form-group">
+            <div class="flex-between">
+              <label for="reg-password" class="form-label">Create Password *</label>
+              <button type="button" class="fs-sm text-primary fw-600" data-toggle-password="reg-password">Show</button>
+            </div>
+            <input type="password" id="reg-password" class="form-control" placeholder="Minimum 8 characters" required>
+            <span class="form-error">Please create a secure password.</span>
+          </div>
+
+          <div class="form-group">
+            <label class="flex-center fs-sm">
+              <input type="checkbox" required> I agree to the Aurelle <a href="terms.html" class="text-primary fw-600">Terms</a> &amp; <a href="privacy-policy.html" class="text-primary fw-600">Privacy Policy</a>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn--gold w-full">Create My Bride Portal Account</button>
+        </form>
+
+        <p class="text-center fs-sm mt-5">
+          Already have a Bride Dossier? <a href="login.html" class="text-primary fw-600">Sign In Here →</a>
+        </p>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Aurelle Bridal Studio. All rights reserved.</p>
+        <div class="flex-center">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <span>•</span>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/plugins/aurelle-plugins.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

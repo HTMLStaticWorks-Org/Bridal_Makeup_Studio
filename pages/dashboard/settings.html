@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bride Portal Settings | Aurelle Bridal Studio</title>
+  <meta name="description" content="Configure your Aurelle Bride Portal notification alerts, password security, language/RTL direction, and Ivory Rouge or Midnight Plum theme. Book your private...">
+  <link rel="canonical" href="https://aurellebridal.studio/pages/dashboard/settings.html">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../../assets/css/rtl.css">
+  <link rel="stylesheet" href="../../assets/css/dashboard.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="dash-shell">
+    <aside class="dash-sidebar" aria-label="Bride Portal Sidebar">
+      <div class="dash-sidebar-header">
+        <a href="../index.html" class="brand-logo">
+          <span class="brand-monogram">A</span>
+          <span class="brand-text">
+            <span class="brand-name">Aurelle</span>
+            <span class="brand-sub">Bride Portal</span>
+          </span>
+        </a>
+        <button type="button" class="icon-btn" data-dash-collapse aria-label="Collapse Sidebar">⇄</button>
+      </div>
+
+      <nav class="dash-nav" aria-label="Bride Dashboard Navigation">
+        <span class="dash-nav-label">My Bridal Suite</span>
+        <a href="index.html" class="dash-nav-link"><span class="dash-link-text">Overview</span></a>
+        <a href="book-trial.html" class="dash-nav-link"><span class="dash-link-text">Book Trial</span></a>
+        <a href="my-looks.html" class="dash-nav-link"><span class="dash-link-text">My Looks &amp; Moodboard</span></a>
+        <a href="appointments.html" class="dash-nav-link"><span class="dash-link-text">Appointments</span></a>
+        <a href="payments.html" class="dash-nav-link"><span class="dash-link-text">Payments &amp; Invoices</span></a>
+        <a href="messages.html" class="dash-nav-link"><span class="dash-link-text">Artist Messages</span></a>
+        <span class="dash-nav-label">Dossier &amp; Preferences</span>
+        <a href="profile.html" class="dash-nav-link"><span class="dash-link-text">Bride Profile</span></a>
+        <a href="settings.html" class="dash-nav-link is-active"><span class="dash-link-text">Settings</span></a>
+        <a href="admin/index.html" class="dash-nav-link"><span class="dash-link-text">Studio Admin View</span></a>
+      </nav>
+
+      <div class="dash-sidebar-footer">
+        <a href="../login.html" class="btn btn--outline w-full">Sign Out</a>
+      </div>
+    </aside>
+
+    <div class="dash-main">
+      <header class="dash-topbar">
+        <div class="dash-topbar-start">
+          <button type="button" class="icon-btn" data-dash-toggle aria-label="Toggle Sidebar Menu">☰</button>
+          <div class="dash-search">
+            <input type="search" placeholder="Search portal settings..." aria-label="Search">
+          </div>
+        </div>
+        <div class="dash-topbar-end">
+          <button type="button" class="icon-btn" data-theme-toggle aria-label="Toggle Theme">☾</button>
+          <button type="button" class="icon-btn" data-rtl-toggle aria-label="Toggle RTL">RTL</button>
+          <a href="profile.html" class="dash-user-pill">
+            <span class="brand-monogram">PS</span>
+            <span class="dash-user-name">Priya Sharma</span>
+          </a>
+        </div>
+      </header>
+
+      <main id="main-content" class="dash-content">
+        <div class="dash-page-head">
+          <div>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="index.html">Bride Portal</a>
+              <span class="breadcrumb-sep">/</span>
+              <span aria-current="page">Settings &amp; Preferences</span>
+            </nav>
+            <h1>Portal <span class="script-accent">Settings</span> &amp; Security</h1>
+            <p>Manage your WhatsApp/SMS reminders, theme mode, RTL layout direction, and password.</p>
+          </div>
+        </div>
+
+        <div class="grid grid--2">
+          <!-- NOTIFICATIONS & APPEARANCE (THEME & RTL) -->
+          <div class="surface-box stack-md">
+            <span class="eyebrow">Concierge Reminders &amp; Display</span>
+            <h2>Notifications, Language &amp; Theme</h2>
+
+            <ul class="check-list">
+              <li><label><input type="checkbox" checked> WhatsApp Alerts for Trial &amp; Cryo-Facial Call Times</label></li>
+              <li><label><input type="checkbox" checked> 90-Day Skin Barrier Milestone Email Reminders</label></li>
+              <li><label><input type="checkbox" checked> Instant Notification When Artist Updates Face Chart</label></li>
+              <li><label><input type="checkbox" checked> Keep My Trial Portraits Under Private NDA Lock</label></li>
+            </ul>
+
+            <div class="btn-group flex-center mt-4">
+              <button type="button" class="btn btn--outline" data-theme-toggle>Switch Light / Dark Theme</button>
+              <button type="button" class="btn btn--ghost" data-rtl-toggle>Toggle LTR / RTL Direction</button>
+            </div>
+          </div>
+
+          <!-- PASSWORD & SECURITY UPDATE -->
+          <div class="surface-box">
+            <span class="eyebrow">Dossier Encryption</span>
+            <h2>Update Portal Password</h2>
+            <form action="#" method="post" class="mt-4" data-validate data-success-message="Your Bride Portal password has been updated.">
+              <div class="form-group">
+                <label for="set-curr-pwd" class="form-label">Current Password *</label>
+                <input type="password" id="set-curr-pwd" class="form-control" value="AurelleBride2026!" required>
+              </div>
+              <div class="form-group">
+                <label for="set-new-pwd" class="form-label">New Password *</label>
+                <input type="password" id="set-new-pwd" class="form-control" placeholder="Enter new password" required>
+              </div>
+              <button type="submit" class="btn btn--primary w-full">Update Password</button>
+            </form>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="../../assets/js/plugins/aurelle-plugins.js"></script>
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/dashboard.js"></script>
+</body>
+</html>

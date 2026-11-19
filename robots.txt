@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /pages/dashboard/admin/
+
+Sitemap: https://aurellebridal.studio/sitemap.xml

@@ -1,0 +1,41 @@
+/* ==========================================================================
+   AURELLE BRIDAL STUDIO — RTL STYLESHEET (rtl.css)
+   Full Right-to-Left Support & Directional Mirroring
+   ========================================================================== */
+
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Mirror directional arrow icons */
+[dir="rtl"] .icon-arrow,
+[dir="rtl"] .breadcrumb-sep {
+  transform: scaleX(-1);
+}
+
+/* Marquee animation reversal for RTL */
+[dir="rtl"] .marquee-track {
+  animation-name: marqueeScrollRTL;
+}
+@keyframes marqueeScrollRTL {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+
+/* Before/After Slider handle positioning in RTL */
+[dir="rtl"] .ba-handle {
+  transform: translateX(50%);
+}
+
+/* Button shimmer direction in RTL */
+[dir="rtl"] .btn::after {
+  transform: skewX(25deg);
+}
+
+/* Keep cards centered in all views regardless of LTR/RTL (Rule 6) */
+[dir="rtl"] .tilt-card,
+[dir="rtl"] .section-header,
+[dir="rtl"] .page-hero-inner {
+  text-align: center;
+}

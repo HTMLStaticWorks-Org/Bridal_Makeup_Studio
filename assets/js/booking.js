@@ -1,0 +1,260 @@
+/**
+ * AURELLE BRIDAL STUDIO — MULTI-STEP BOOKING WIZARD CONTROLLER (booking.js)
+ * Powers pages/book-now.html (5-step reservation wizard) and
+ * pages/booking-confirmation.html (dynamic receipt + Add-to-Calendar .ics export).
+ */
+
+(function () {
+  'use strict';
+
+  const STORAGE_BOOKING = 'aurelle_last_booking';
+
+  function initBookingWizard() {
+    const wizard = document.getElementById('bookingWizard');
+    if (!wizard) return;
+
+    let currentStep = 1;
+    const totalSteps = 5;
+
+    const state = {
+      serviceName: 'Royal Airbrush & HD Bridal Suite',
+      servicePrice: 680,
+      deposit: 170,
+      date: '2026-12-14',
+      slot: '09:00 AM — Morning Ceremony Slot',
+      lookStyle: 'Classic Red & Antique Gold',
+      skinType: 'Combination / Dehydrated',
+      artist: 'Aurelia Vance (Creative Director)',
+      brideName: '',
+      brideEmail: '',
+      bridePhone: '',
+      venue: 'Flagship Bridal Atelier Suite',
+      paymentMethod: 'Stripe Luxury Checkout'
+    };
+
+    const panes = wizard.querySelectorAll('[data-wizard-pane]');
+    const pills = document.querySelectorAll('[data-wizard-pill]');
+    const prevBtn = document.getElementById('wizardPrevBtn');
+    const nextBtn = document.getElementById('wizardNextBtn');
+
+    /* Summary Sidebar Elements */
+    const sumService = document.getElementById('sumService');
+    const sumDate = document.getElementById('sumDate');
+    const sumSlot = document.getElementById('sumSlot');
+    const sumLook = document.getElementById('sumLook');
+    const sumTotal = document.getElementById('sumTotal');
+    const sumDeposit = document.getElementById('sumDeposit');
+    const reviewBlock = document.getElementById('wizardReviewSummary');
+
+    const syncSummary = () => {
+      state.deposit = Math.round(state.servicePrice * 0.25);
+      if (sumService) sumService.textContent = state.serviceName;
+      if (sumDate) sumDate.textContent = state.date;
+      if (sumSlot) sumSlot.textContent = state.slot;
+      if (sumLook) sumLook.textContent = state.lookStyle;
+      if (sumTotal) sumTotal.textContent = `$${state.servicePrice}`;
+      if (sumDeposit) sumDeposit.textContent = `$${state.deposit}`;
+
+      if (reviewBlock) {
+        reviewBlock.innerHTML = `
+          <div style="display:grid;gap:10px;text-align:start;font-size:0.94rem;">
+            <div><strong>Selected Package:</strong> ${state.serviceName} ($${state.servicePrice})</div>
+            <div><strong>Date &amp; Time Slot:</strong> ${state.date} • ${state.slot}</div>
+            <div><strong>Preferred Bridal Look:</strong> ${state.lookStyle} (${state.skinType})</div>
+            <div><strong>Lead Artist:</strong> ${state.artist}</div>
+            <div><strong>Bride Contact:</strong> ${state.brideName || 'Bride Guest'} (${state.brideEmail || 'pending@aurelle.studio'})</div>
+            <div><strong>Retainer Deposit Due Today (25%):</strong> <span style="color:var(--primary);font-weight:700;">$${state.deposit}.00 USD</span></div>
+          </div>
+        `;
+      }
+    };
+
+    const goToStep = (step) => {
+      currentStep = Math.max(1, Math.min(totalSteps, step));
+      panes.forEach((pane) => {
+        const s = parseInt(pane.getAttribute('data-wizard-pane'), 10);
+        pane.classList.toggle('is-active', s === currentStep);
+      });
+      pills.forEach((pill) => {
+        const s = parseInt(pill.getAttribute('data-wizard-pill'), 10);
+        pill.classList.toggle('is-active', s === currentStep);
+        pill.classList.toggle('is-done', s < currentStep);
+      });
+
+      if (prevBtn) prevBtn.style.visibility = currentStep === 1 ? 'hidden' : 'visible';
+      if (nextBtn) {
+        nextBtn.textContent =
+          currentStep === totalSteps ? `Authorize $${state.deposit} Retainer & Confirm` : 'Continue to Next Step';
+      }
+      syncSummary();
+    };
+
+    /* Service radio selection (Step 1) */
+    wizard.querySelectorAll('input[name="booking_service"]').forEach((radio) => {
+      radio.addEventListener('change', () => {
+        if (radio.checked) {
+          state.serviceName = radio.getAttribute('data-name') || radio.value;
+          state.servicePrice = parseFloat(radio.getAttribute('data-price') || '680');
+          syncSummary();
+        }
+      });
+    });
+
+    /* Date picker & Time slot buttons (Step 2) */
+    const dateInput = document.getElementById('bookingDateInput');
+    if (dateInput) {
+      dateInput.addEventListener('change', () => {
+        if (dateInput.value) {
+          state.date = dateInput.value;
+          syncSummary();
+        }
+      });
+    }
+
+    wizard.querySelectorAll('[data-slot-value]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        wizard.querySelectorAll('[data-slot-value]').forEach((b) => b.classList.remove('is-selected'));
+        btn.classList.add('is-selected');
+        state.slot = btn.getAttribute('data-slot-value');
+        syncSummary();
+      });
+    });
+
+    /* Step 3 inputs */
+    const lookSelect = document.getElementById('bookingLookSelect');
+    const skinSelect = document.getElementById('bookingSkinSelect');
+    const artistSelect = document.getElementById('bookingArtistSelect');
+    if (lookSelect) lookSelect.addEventListener('change', () => { state.lookStyle = lookSelect.value; syncSummary(); });
+    if (skinSelect) skinSelect.addEventListener('change', () => { state.skinType = skinSelect.value; syncSummary(); });
+    if (artistSelect) artistSelect.addEventListener('change', () => { state.artist = artistSelect.value; syncSummary(); });
+
+    /* Step 4 inputs & File upload preview */
+    const nameInput = document.getElementById('bookingBrideName');
+    const emailInput = document.getElementById('bookingBrideEmail');
+    const phoneInput = document.getElementById('bookingBridePhone');
+    const fileInput = document.getElementById('bookingInspoUpload');
+    const fileStatus = document.getElementById('uploadFileStatus');
+
+    if (fileInput && fileStatus) {
+      fileInput.addEventListener('change', () => {
+        const count = fileInput.files ? fileInput.files.length : 0;
+        fileStatus.textContent = count
+          ? `${count} inspiration image(s) attached ready for artist moodboard.`
+          : 'No files selected yet.';
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => goToStep(currentStep - 1));
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        if (currentStep === 4) {
+          if (nameInput && !nameInput.value.trim()) {
+            nameInput.classList.add('is-invalid');
+            if (window.AurelleToast) window.AurelleToast('Please enter your full name to continue.');
+            return;
+          }
+          if (emailInput && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) {
+            emailInput.classList.add('is-invalid');
+            if (window.AurelleToast) window.AurelleToast('Please enter a valid email address.');
+            return;
+          }
+          state.brideName = nameInput ? nameInput.value.trim() : 'Ananya Kapoor';
+          state.brideEmail = emailInput ? emailInput.value.trim() : 'ananya@bridal.co';
+          state.bridePhone = phoneInput ? phoneInput.value.trim() : '+1 (555) 234-8910';
+        }
+
+        if (currentStep < totalSteps) {
+          goToStep(currentStep + 1);
+        } else {
+          /* Final Step Submit */
+          state.refCode = 'AUR-' + Math.floor(100000 + Math.random() * 900000);
+          localStorage.setItem(STORAGE_BOOKING, JSON.stringify(state));
+          nextBtn.disabled = true;
+          nextBtn.textContent = 'Securing Your Bridal Suite...';
+          setTimeout(() => {
+            window.location.href = 'booking-confirmation.html';
+          }, 700);
+        }
+      });
+    }
+
+    goToStep(1);
+  }
+
+  function initConfirmationPage() {
+    const confBox = document.getElementById('confirmationDetailsBox');
+    if (!confBox) return;
+
+    let saved = null;
+    try {
+      saved = JSON.parse(localStorage.getItem(STORAGE_BOOKING));
+    } catch (e) {
+      saved = null;
+    }
+
+    const data = saved || {
+      refCode: 'AUR-849201',
+      serviceName: 'Royal Airbrush & HD Bridal Suite',
+      servicePrice: 680,
+      deposit: 170,
+      date: '2026-12-14',
+      slot: '09:00 AM — Morning Ceremony Slot',
+      lookStyle: 'Classic Red & Antique Gold',
+      artist: 'Aurelia Vance (Creative Director)',
+      brideName: 'Priya Sharma',
+      brideEmail: 'priya.sharma@luxurybride.com'
+    };
+
+    const setEl = (id, val) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = val;
+    };
+
+    setEl('confRefCode', data.refCode || 'AUR-849201');
+    setEl('confService', data.serviceName);
+    setEl('confDateSlot', `${data.date} • ${data.slot}`);
+    setEl('confLook', data.lookStyle);
+    setEl('confArtist', data.artist);
+    setEl('confBride', `${data.brideName || 'Priya Sharma'} (${data.brideEmail || 'priya@bride.co'})`);
+    setEl('confDepositPaid', `$${data.deposit}.00 USD (Paid via Luxury Escrow)`);
+    setEl('confBalance', `$${data.servicePrice - data.deposit}.00 USD`);
+
+    const icsBtn = document.getElementById('downloadIcsBtn');
+    if (icsBtn) {
+      icsBtn.addEventListener('click', () => {
+        const icsContent = [
+          'BEGIN:VCALENDAR',
+          'VERSION:2.0',
+          'PRODID:-//Aurelle Bridal Studio//Bridal Appointment//EN',
+          'BEGIN:VEVENT',
+          `SUMMARY:Aurelle Bridal Studio - ${data.serviceName}`,
+          `DESCRIPTION:Ref ${data.refCode} with ${data.artist}. Look: ${data.lookStyle}`,
+          'LOCATION:Aurelle Flagship Bridal Atelier, 420 Rodeo Terrace',
+          'DTSTART:20261214T090000Z',
+          'DTEND:20261214T123000Z',
+          'END:VEVENT',
+          'END:VCALENDAR'
+        ].join('\r\n');
+
+        const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `aurelle-bridal-booking-${data.refCode || 'AUR'}.ics`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+        if (window.AurelleToast) window.AurelleToast('Calendar invite (.ics) downloaded!');
+      });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initBookingWizard();
+    initConfirmationPage();
+  });
+})();

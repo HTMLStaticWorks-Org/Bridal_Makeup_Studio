@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookings Management | Aurelle Studio Admin</title>
+  <meta name="description" content="Filter, approve, and update bridal makeup suite reservations and private trial appointments. Book your private bridal suite at Aurelle Bridal Studio. Book yo...">
+  <link rel="canonical" href="https://aurellebridal.studio/pages/dashboard/admin/bookings.html">
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../../../assets/css/rtl.css">
+  <link rel="stylesheet" href="../../../assets/css/dashboard.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="dash-shell">
+    <aside class="dash-sidebar" aria-label="Studio Admin Sidebar">
+      <div class="dash-sidebar-header">
+        <a href="../../index.html" class="brand-logo">
+          <span class="brand-monogram">A</span>
+          <span class="brand-text">
+            <span class="brand-name">Aurelle</span>
+            <span class="brand-sub">Studio Admin</span>
+          </span>
+        </a>
+        <button type="button" class="icon-btn" data-dash-collapse aria-label="Collapse Sidebar">⇄</button>
+      </div>
+
+      <nav class="dash-nav" aria-label="Admin Navigation">
+        <span class="dash-nav-label">Atelier Command</span>
+        <a href="index.html" class="dash-nav-link"><span class="dash-link-text">Admin Overview</span></a>
+        <a href="bookings.html" class="dash-nav-link is-active"><span class="dash-link-text">Bookings Management</span></a>
+        <a href="brides.html" class="dash-nav-link"><span class="dash-link-text">Brides Directory</span></a>
+        <a href="services.html" class="dash-nav-link"><span class="dash-link-text">Services &amp; Pricing</span></a>
+        <a href="payments.html" class="dash-nav-link"><span class="dash-link-text">Escrow Payments</span></a>
+        <a href="messages.html" class="dash-nav-link"><span class="dash-link-text">Concierge Inbox</span></a>
+        <a href="reports.html" class="dash-nav-link"><span class="dash-link-text">Reports &amp; Analytics</span></a>
+        <a href="settings.html" class="dash-nav-link"><span class="dash-link-text">Studio Settings</span></a>
+        <span class="dash-nav-label">Switch Portal</span>
+        <a href="../index.html" class="dash-nav-link"><span class="dash-link-text">← Bride Portal View</span></a>
+      </nav>
+
+      <div class="dash-sidebar-footer">
+        <a href="../../login.html" class="btn btn--outline w-full">Sign Out</a>
+      </div>
+    </aside>
+
+    <div class="dash-main">
+      <header class="dash-topbar">
+        <div class="dash-topbar-start">
+          <button type="button" class="icon-btn" data-dash-toggle aria-label="Toggle Sidebar Menu">☰</button>
+          <div class="dash-search">
+            <input type="search" placeholder="Search booking reference..." aria-label="Search">
+          </div>
+        </div>
+        <div class="dash-topbar-end">
+          <button type="button" class="icon-btn" data-theme-toggle aria-label="Toggle Theme">☾</button>
+          <button type="button" class="icon-btn" data-rtl-toggle aria-label="Toggle RTL">RTL</button>
+          <a href="settings.html" class="dash-user-pill">
+            <span class="brand-monogram">AV</span>
+            <span class="dash-user-name">Aurelia Vance (Admin)</span>
+          </a>
+        </div>
+      </header>
+
+      <main id="main-content" class="dash-content">
+        <div class="dash-page-head">
+          <div>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="index.html">Admin Overview</a>
+              <span class="breadcrumb-sep">/</span>
+              <span aria-current="page">Bookings Management</span>
+            </nav>
+            <h1>Bridal Commission <span class="script-accent">Bookings</span></h1>
+            <p>Filter reservations by status or click any status button to cycle confirmation states.</p>
+          </div>
+
+          <div class="form-group">
+            <label for="adminBookingFilter" class="sr-only">Filter Bookings by Status</label>
+            <select id="adminBookingFilter" class="form-control">
+              <option value="all">All Bookings (5)</option>
+              <option value="confirmed">Confirmed Suites</option>
+              <option value="trial">Pending Trial</option>
+              <option value="deposit">Deposit Paid</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="surface-box">
+          <div class="table-responsive">
+            <table class="luxury-table">
+              <thead>
+                <tr>
+                  <th scope="col">Ref Code</th>
+                  <th scope="col">Bride Client</th>
+                  <th scope="col">Commission Suite</th>
+                  <th scope="col">Event Date</th>
+                  <th scope="col">Lead Artist</th>
+                  <th scope="col">Total</th>
+                  <th scope="col">Live Status (Click to Update)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-booking-row="confirmed">
+                  <td><strong>AUR-849201</strong></td>
+                  <td>Priya Sharma</td>
+                  <td>The Aurelle Sovereign (2 Events)</td>
+                  <td>Dec 14, 2026</td>
+                  <td>Aurelia Vance</td>
+                  <td>$1,290</td>
+                  <td><button type="button" class="btn btn--primary" data-cycle-status>Confirmed</button></td>
+                </tr>
+                <tr data-booking-row="deposit">
+                  <td><strong>AUR-849188</strong></td>
+                  <td>Zara Mahmood</td>
+                  <td>Royal Nikah &amp; Walima Airbrush</td>
+                  <td>Nov 21, 2026</td>
+                  <td>Kavya Menon</td>
+                  <td>$1,420</td>
+                  <td><button type="button" class="btn btn--gold" data-cycle-status>Deposit Paid</button></td>
+                </tr>
+                <tr data-booking-row="trial">
+                  <td><strong>AUR-849304</strong></td>
+                  <td>Tara Oberoi</td>
+                  <td>Bespoke 3-Hour Bridal Trial</td>
+                  <td>Nov 29, 2026</td>
+                  <td>Aurelia Vance</td>
+                  <td>$240</td>
+                  <td><button type="button" class="btn btn--outline" data-cycle-status>Pending Trial</button></td>
+                </tr>
+                <tr data-booking-row="confirmed">
+                  <td><strong>AUR-849112</strong></td>
+                  <td>Elena Vance</td>
+                  <td>Cathedral Pearl Lumière Suite</td>
+                  <td>Nov 28, 2026</td>
+                  <td>Celeste Moreau</td>
+                  <td>$850</td>
+                  <td><button type="button" class="btn btn--primary" data-cycle-status>Confirmed</button></td>
+                </tr>
+                <tr data-booking-row="deposit">
+                  <td><strong>AUR-849450</strong></td>
+                  <td>Meera Singhania</td>
+                  <td>Empress Destination (Udaipur)</td>
+                  <td>Jan 18, 2027</td>
+                  <td>Full 4-Artist Team</td>
+                  <td>$2,950</td>
+                  <td><button type="button" class="btn btn--gold" data-cycle-status>Deposit Paid</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="../../../assets/js/plugins/aurelle-plugins.js"></script>
+  <script src="../../../assets/js/main.js"></script>
+  <script src="../../../assets/js/dashboard.js"></script>
+</body>
+</html>

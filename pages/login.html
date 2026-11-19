@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bride Portal Login | Aurelle Bridal Studio</title>
+  <meta name="description" content="Sign in to your private Aurelle Bride Dashboard to manage your trial appointment, compare moodboard looks, chat with your artist, and view payments. Book you...">
+  <link rel="canonical" href="https://aurellebridal.studio/pages/login.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bride Portal Login | Aurelle Bridal Studio">
+  <meta property="og:description" content="Access your private bridal suite dossier and moodboard.">
+  <meta property="og:image" content="../assets/images/misc/og-login.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preload" href="../assets/fonts/cormorant-garamond-600.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../assets/fonts/jost-400.woff" as="font" type="font/woff" crossorigin>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- SHARED HEADER -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="Aurelle Bridal Studio Home">
+        <span class="brand-monogram" aria-hidden="true">A</span>
+        <span class="brand-text">
+          <span class="brand-name">Aurelle</span>
+          <span class="brand-sub">Bridal Studio</span>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
+              Home
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </a>
+            <ul class="dropdown-menu" aria-label="Home Variations">
+              <li><a href="index.html" class="dropdown-link">Home 1 — Cinematic Arch</a></li>
+              <li><a href="home-2.html" class="dropdown-link">Home 2 — Editorial Collage</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="book-now.html" class="nav-link">Book Now</a></li>
+          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="portfolio.html" class="nav-link">Gallery</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="icon-btn" data-theme-toggle aria-label="Toggle Dark or Light Mode">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button type="button" class="icon-btn" data-rtl-toggle aria-label="Toggle Right to Left Layout">RTL</button>
+        <div class="header-ctas">
+          <a href="login.html" class="btn btn--outline">Login</a>
+          <a href="book-now.html?type=trial" class="btn btn--primary">Book a Trial</a>
+        </div>
+        <button type="button" class="icon-btn mobile-toggle" data-mobile-open aria-label="Open Navigation Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true" role="dialog" aria-label="Mobile Navigation">
+    <div class="mobile-overlay-top">
+      <a href="index.html" class="brand-logo">
+        <span class="brand-monogram">A</span>
+        <span class="brand-text">
+          <span class="brand-name">Aurelle</span>
+          <span class="brand-sub">Bridal Studio</span>
+        </span>
+      </a>
+      <button type="button" class="icon-btn" data-mobile-close aria-label="Close Navigation Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+      <li><a href="book-now.html" class="mobile-nav-link">Book Now</a></li>
+      <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+      <li><a href="portfolio.html" class="mobile-nav-link">Gallery</a></li>
+      <li><a href="about.html" class="mobile-nav-link">About</a></li>
+      <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- =====================================================================
+       MAIN CONTENT — BRIDE LOGIN (SPLIT PANEL WITH UNIQUE PHOTO auth-login)
+       ===================================================================== -->
+  <main id="main-content">
+    <section class="container auth-split" aria-labelledby="login-heading">
+
+      <!-- PHOTO PANEL -->
+      <div class="auth-visual-panel">
+        <picture>
+          <source srcset="../assets/images/auth/auth-login.webp" type="image/webp">
+          <img src="../assets/images/auth/auth-login.jpg" alt="Bride gazing into illuminated arched vanity mirror in silk robe" width="800" height="1080" loading="eager">
+        </picture>
+        <div class="auth-visual-caption">
+          <span class="eyebrow">Private Bride Sanctuary</span>
+          <h2>Welcome Back to Your <span class="script-accent">Bridal</span> Dossier</h2>
+          <p class="mt-2">Review your trial face charts, compare saved ceremony looks, and message your lead artist.</p>
+        </div>
+      </div>
+
+      <!-- FORM PANEL -->
+      <div class="surface-box">
+        <span class="eyebrow">Bride Login</span>
+        <h1 id="login-heading">Enter Your Bride <span class="script-accent">Portal</span></h1>
+        <p class="mt-2 mb-5">Sign in with your registered bridal email or reservation reference code.</p>
+
+        <form action="dashboard/index.html" method="get" data-validate data-redirect="dashboard/index.html" data-success-message="Authenticated! Opening your private Bride Dashboard...">
+          <div class="form-group">
+            <label for="login-email" class="form-label">Bridal Email Address *</label>
+            <input type="email" id="login-email" class="form-control" placeholder="priya.sharma@luxurybride.com" value="priya.sharma@luxurybride.com" required>
+            <span class="form-error">Please enter a valid email address.</span>
+          </div>
+
+          <div class="form-group">
+            <div class="flex-between">
+              <label for="login-password" class="form-label">Password *</label>
+              <button type="button" class="fs-sm text-primary fw-600" data-toggle-password="login-password">Show</button>
+            </div>
+            <input type="password" id="login-password" class="form-control" placeholder="Enter your password" value="AurelleBride2026!" required>
+            <span class="form-error">Please enter your password.</span>
+          </div>
+
+          <div class="flex-between mb-5">
+            <label class="flex-center fs-sm">
+              <input type="checkbox" checked> Remember my bridal suite session
+            </label>
+            <a href="forgot-password.html" class="fs-sm text-primary fw-600">Forgot Password?</a>
+          </div>
+
+          <button type="submit" class="btn btn--primary w-full">Sign In to Bride Dashboard</button>
+        </form>
+
+        <!-- Social Login Placeholders -->
+        <div class="mt-5 text-center">
+          <p class="fs-sm text-muted mb-3">Or continue with verified bridal identity</p>
+          <div class="grid grid--2">
+            <!-- TODO: Connect OAuth providers for Google / Apple Sign-In -->
+            <a href="dashboard/index.html" class="btn btn--ghost">Continue with Google</a>
+            <a href="dashboard/admin/index.html" class="btn btn--outline">Studio Admin Login</a>
+          </div>
+        </div>
+
+        <p class="text-center fs-sm mt-5">
+          New to Aurelle Bridal Studio? <a href="register.html" class="text-primary fw-600">Create Your Bride Profile →</a>
+        </p>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- SHARED FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Aurelle Bridal Studio. All rights reserved.</p>
+        <div class="flex-center">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <span>•</span>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/plugins/aurelle-plugins.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

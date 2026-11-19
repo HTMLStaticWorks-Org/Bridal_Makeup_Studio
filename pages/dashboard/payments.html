@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payments &amp; Invoices | Aurelle Bride Portal</title>
+  <meta name="description" content="Track your bridal suite package total, retainer deposits, installment schedule, and downloadable invoices in your Aurelle Bride Portal. Book your private bri...">
+  <link rel="canonical" href="https://aurellebridal.studio/pages/dashboard/payments.html">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../../assets/css/rtl.css">
+  <link rel="stylesheet" href="../../assets/css/dashboard.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="dash-shell">
+    <aside class="dash-sidebar" aria-label="Bride Portal Sidebar">
+      <div class="dash-sidebar-header">
+        <a href="../index.html" class="brand-logo">
+          <span class="brand-monogram">A</span>
+          <span class="brand-text">
+            <span class="brand-name">Aurelle</span>
+            <span class="brand-sub">Bride Portal</span>
+          </span>
+        </a>
+        <button type="button" class="icon-btn" data-dash-collapse aria-label="Collapse Sidebar">⇄</button>
+      </div>
+
+      <nav class="dash-nav" aria-label="Bride Dashboard Navigation">
+        <span class="dash-nav-label">My Bridal Suite</span>
+        <a href="index.html" class="dash-nav-link"><span class="dash-link-text">Overview</span></a>
+        <a href="book-trial.html" class="dash-nav-link"><span class="dash-link-text">Book Trial</span></a>
+        <a href="my-looks.html" class="dash-nav-link"><span class="dash-link-text">My Looks &amp; Moodboard</span></a>
+        <a href="appointments.html" class="dash-nav-link"><span class="dash-link-text">Appointments</span></a>
+        <a href="payments.html" class="dash-nav-link is-active"><span class="dash-link-text">Payments &amp; Invoices</span></a>
+        <a href="messages.html" class="dash-nav-link"><span class="dash-link-text">Artist Messages</span></a>
+        <span class="dash-nav-label">Dossier &amp; Preferences</span>
+        <a href="profile.html" class="dash-nav-link"><span class="dash-link-text">Bride Profile</span></a>
+        <a href="settings.html" class="dash-nav-link"><span class="dash-link-text">Settings</span></a>
+        <a href="admin/index.html" class="dash-nav-link"><span class="dash-link-text">Studio Admin View</span></a>
+      </nav>
+
+      <div class="dash-sidebar-footer">
+        <a href="../login.html" class="btn btn--outline w-full">Sign Out</a>
+      </div>
+    </aside>
+
+    <div class="dash-main">
+      <header class="dash-topbar">
+        <div class="dash-topbar-start">
+          <button type="button" class="icon-btn" data-dash-toggle aria-label="Toggle Sidebar Menu">☰</button>
+          <div class="dash-search">
+            <input type="search" placeholder="Search invoice # or payment..." aria-label="Search">
+          </div>
+        </div>
+        <div class="dash-topbar-end">
+          <button type="button" class="icon-btn" data-theme-toggle aria-label="Toggle Theme">☾</button>
+          <button type="button" class="icon-btn" data-rtl-toggle aria-label="Toggle RTL">RTL</button>
+          <a href="profile.html" class="dash-user-pill">
+            <span class="brand-monogram">PS</span>
+            <span class="dash-user-name">Priya Sharma</span>
+          </a>
+        </div>
+      </header>
+
+      <main id="main-content" class="dash-content">
+        <div class="dash-page-head">
+          <div>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="index.html">Bride Portal</a>
+              <span class="breadcrumb-sep">/</span>
+              <span aria-current="page">Payments &amp; Invoices</span>
+            </nav>
+            <h1>Escrow Payments &amp; <span class="script-accent">Invoices</span></h1>
+            <p>The Aurelle Sovereign Two-Event Suite • Total Commission: $1,290.00 USD</p>
+          </div>
+        </div>
+
+        <!-- PACKAGE TOTAL, DEPOSIT & INSTALMENTS TRACKER CARDS -->
+        <div class="grid grid--3 mb-6">
+          <article class="tilt-card card--dash">
+            <span class="card-tag">Commission Total</span>
+            <div class="display-price">$1,290.00</div>
+            <h2 class="card-title">The Aurelle Sovereign</h2>
+            <p class="card-text">Includes Ceremony + Reception Looks, 3-Hr Trial, and Velvet Clutch.</p>
+            <div class="card-footer"><span class="badge badge--gold">Fixed Rate Lock</span></div>
+          </article>
+
+          <article class="tilt-card card--dash">
+            <span class="card-tag">Paid to Date (75%)</span>
+            <div class="display-price">$967.50</div>
+            <h2 class="card-title">2 of 3 Instalments Paid</h2>
+            <p class="card-text">25% Retainer ($322.50) + 50% Trial Milestone ($645.00) verified.</p>
+            <div class="card-footer"><span class="badge badge--success">Escrow Verified</span></div>
+          </article>
+
+          <article class="tilt-card card--dash">
+            <span class="card-tag">Final Balance (25%)</span>
+            <div class="display-price">$322.50</div>
+            <h2 class="card-title">Due December 01, 2026</h2>
+            <p class="card-text">Settle your final 25% balance via Stripe or PayPal Express below.</p>
+            <div class="card-footer flex-center">
+              <!-- TODO: Connect live Stripe Checkout session or PayPal SDK -->
+              <button type="button" class="btn btn--gold" onclick="if(window.AurelleToast) window.AurelleToast('Stripe Luxury Checkout opened for final $322.50 installment.');">Pay via Stripe</button>
+              <button type="button" class="btn btn--outline" onclick="if(window.AurelleToast) window.AurelleToast('PayPal Express checkout initialized.');">PayPal</button>
+            </div>
+          </article>
+        </div>
+
+        <!-- PAYMENT HISTORY & INVOICE DOWNLOAD TABLE -->
+        <div class="surface-box">
+          <span class="eyebrow">Transaction Ledger</span>
+          <h2 class="mb-4">Payment History &amp; Official Invoices</h2>
+          <div class="table-responsive">
+            <table class="luxury-table">
+              <thead>
+                <tr>
+                  <th scope="col">Invoice ID</th>
+                  <th scope="col">Milestone Description</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Gateway</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Receipt</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>INV-2026-412</strong></td>
+                  <td>25% Date-Lock Retainer Deposit</td>
+                  <td>Sep 15, 2026</td>
+                  <td>Stripe Amex •••• 4019</td>
+                  <td>$322.50</td>
+                  <td><span class="badge badge--success">Paid</span></td>
+                  <td><button type="button" class="btn btn--ghost" data-download-invoice="INV-2026-412">Download</button></td>
+                </tr>
+                <tr>
+                  <td><strong>INV-2026-884</strong></td>
+                  <td>50% Mid-Term Trial &amp; Extension Milestone</td>
+                  <td>Nov 17, 2026</td>
+                  <td>Stripe Amex •••• 4019</td>
+                  <td>$645.00</td>
+                  <td><span class="badge badge--success">Paid</span></td>
+                  <td><button type="button" class="btn btn--ghost" data-download-invoice="INV-2026-884">Download</button></td>
+                </tr>
+                <tr>
+                  <td><strong>INV-2026-995</strong></td>
+                  <td>Final 25% Wedding Suite Balance</td>
+                  <td>Due Dec 01, 2026</td>
+                  <td>Pending</td>
+                  <td>$322.50</td>
+                  <td><span class="badge badge--warning">Upcoming</span></td>
+                  <td><button type="button" class="btn btn--outline" data-download-invoice="INV-2026-995">Preview</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="../../assets/js/plugins/aurelle-plugins.js"></script>
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/dashboard.js"></script>
+</body>
+</html>
