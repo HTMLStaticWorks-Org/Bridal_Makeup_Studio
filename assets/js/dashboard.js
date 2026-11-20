@@ -1,5 +1,5 @@
 /**
- * AURELLE BRIDAL STUDIO — BRIDE & ADMIN DASHBOARD CONTROLLER (dashboard.js)
+ * LUMINA BRIDAL STUDIO — BRIDE & ADMIN DASHBOARD CONTROLLER (dashboard.js)
  * Powers all 8 Bride Portal pages (pages/dashboard/*.html) and all 8 Studio
  * Admin Portal pages (pages/dashboard/admin/*.html) with interactive demo data.
  */
@@ -21,6 +21,10 @@
 
     collapseBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
+        if (window.innerWidth <= 1024) {
+          if (sidebar) sidebar.classList.remove('is-open');
+          return;
+        }
         if (shell) shell.classList.toggle('is-collapsed');
       });
     });
@@ -58,7 +62,7 @@
       setTimeout(() => {
         const reply = document.createElement('div');
         reply.className = 'chat-bubble chat-bubble--incoming';
-        reply.innerHTML = `<p>Thank you! Aurelia Vance's bridal concierge has noted this on your look sheet and updated your suite dossier.</p><span class="chat-meta">Aurelle Concierge • Just now</span>`;
+        reply.innerHTML = `<p>Thank you! Aurelia Vance's bridal concierge has noted this on your look sheet and updated your suite dossier.</p><span class="chat-meta">Lumina Concierge • Just now</span>`;
         chatList.appendChild(reply);
         chatList.scrollTop = chatList.scrollHeight;
       }, 900);
@@ -90,7 +94,7 @@
         const invId = btn.getAttribute('data-download-invoice');
         const content = [
           '====================================================',
-          '          AURELLE BRIDAL STUDIO — INVOICE           ',
+          '          LUMINA BRIDAL STUDIO — INVOICE           ',
           '====================================================',
           `Invoice Number : ${invId}`,
           'Client Bride   : Priya Sharma',
@@ -103,7 +107,7 @@
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `${invId}-Aurelle-Bridal-Studio.txt`;
+        a.download = `${invId}-Lumina-Bridal-Studio.txt`;
         document.body.appendChild(a);
         a.click();
         a.remove();

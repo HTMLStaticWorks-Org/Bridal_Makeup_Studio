@@ -1,5 +1,5 @@
 /**
- * AURELLE BRIDAL STUDIO — MULTI-STEP BOOKING WIZARD CONTROLLER (booking.js)
+ * LUMINA BRIDAL STUDIO — MULTI-STEP BOOKING WIZARD CONTROLLER (booking.js)
  * Powers pages/book-now.html (5-step reservation wizard) and
  * pages/booking-confirmation.html (dynamic receipt + Add-to-Calendar .ics export).
  */
@@ -62,7 +62,7 @@
             <div><strong>Date &amp; Time Slot:</strong> ${state.date} • ${state.slot}</div>
             <div><strong>Preferred Bridal Look:</strong> ${state.lookStyle} (${state.skinType})</div>
             <div><strong>Lead Artist:</strong> ${state.artist}</div>
-            <div><strong>Bride Contact:</strong> ${state.brideName || 'Bride Guest'} (${state.brideEmail || 'pending@aurelle.studio'})</div>
+            <div><strong>Bride Contact:</strong> ${state.brideName || 'Bride Guest'} (${state.brideEmail || 'pending@lumina.studio'})</div>
             <div><strong>Retainer Deposit Due Today (25%):</strong> <span style="color:var(--primary);font-weight:700;">$${state.deposit}.00 USD</span></div>
           </div>
         `;
@@ -228,11 +228,11 @@
         const icsContent = [
           'BEGIN:VCALENDAR',
           'VERSION:2.0',
-          'PRODID:-//Aurelle Bridal Studio//Bridal Appointment//EN',
+          'PRODID:-//Lumina Bridal Studio//Bridal Appointment//EN',
           'BEGIN:VEVENT',
-          `SUMMARY:Aurelle Bridal Studio - ${data.serviceName}`,
+          `SUMMARY:Lumina Bridal Studio - ${data.serviceName}`,
           `DESCRIPTION:Ref ${data.refCode} with ${data.artist}. Look: ${data.lookStyle}`,
-          'LOCATION:Aurelle Flagship Bridal Atelier, 420 Rodeo Terrace',
+          'LOCATION:Lumina Flagship Bridal Atelier, 420 Rodeo Terrace',
           'DTSTART:20261214T090000Z',
           'DTEND:20261214T123000Z',
           'END:VEVENT',
@@ -243,7 +243,7 @@
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `aurelle-bridal-booking-${data.refCode || 'AUR'}.ics`;
+        a.download = `lumina-bridal-booking-${data.refCode || 'AUR'}.ics`;
         document.body.appendChild(a);
         a.click();
         a.remove();

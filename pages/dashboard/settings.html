@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bride Portal Settings | Aurelle Bridal Studio</title>
-  <meta name="description" content="Configure your Aurelle Bride Portal notification alerts, password security, language/RTL direction, and Ivory Rouge or Midnight Plum theme. Book your private...">
-  <link rel="canonical" href="https://aurellebridal.studio/pages/dashboard/settings.html">
+  <title>Bride Portal Settings | Lumina Bridal Studio</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/misc/favicon.svg">
+  <meta name="description" content="Configure your Lumina Bride Portal notification alerts, password security, language/RTL direction, and Ivory Rouge or Midnight Plum theme. Book your private...">
+  <link rel="canonical" href="https://luminabridal.studio/pages/dashboard/settings.html">
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="stylesheet" href="../../assets/css/dark-mode.css">
   <link rel="stylesheet" href="../../assets/css/rtl.css">
@@ -18,9 +19,9 @@
     <aside class="dash-sidebar" aria-label="Bride Portal Sidebar">
       <div class="dash-sidebar-header">
         <a href="../index.html" class="brand-logo">
-          <span class="brand-monogram">A</span>
+          <span class="brand-monogram"><svg class="brand-emblem" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 3C17.2 10.2 21.8 14.8 29 16C21.8 17.2 17.2 21.8 16 29C14.8 21.8 10.2 17.2 3 16C10.2 14.8 14.8 10.2 16 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M16 9.5C16.7 13.1 18.9 15.3 22.5 16C18.9 16.7 16.7 18.9 16 22.5C15.3 18.9 13.1 16.7 9.5 16C13.1 15.3 15.3 13.1 16 9.5Z" fill="currentColor" opacity="0.28"/><circle cx="16" cy="16" r="1.8" fill="currentColor"/><circle cx="8.5" cy="8.5" r="0.9" fill="currentColor" opacity="0.85"/><circle cx="23.5" cy="8.5" r="0.9" fill="currentColor" opacity="0.85"/><circle cx="8.5" cy="23.5" r="0.9" fill="currentColor" opacity="0.85"/><circle cx="23.5" cy="23.5" r="0.9" fill="currentColor" opacity="0.85"/></svg></span>
           <span class="brand-text">
-            <span class="brand-name">Aurelle</span>
+            <span class="brand-name">Lumina</span>
             <span class="brand-sub">Bride Portal</span>
           </span>
         </a>
@@ -42,7 +43,7 @@
       </nav>
 
       <div class="dash-sidebar-footer">
-        <a href="../login.html" class="btn btn--outline w-full">Sign Out</a>
+        <a href="../index.html" class="btn btn--outline w-full">Sign Out</a>
       </div>
     </aside>
 
@@ -50,15 +51,15 @@
       <header class="dash-topbar">
         <div class="dash-topbar-start">
           <button type="button" class="icon-btn" data-dash-toggle aria-label="Toggle Sidebar Menu">☰</button>
-          <div class="dash-search">
-            <input type="search" placeholder="Search portal settings..." aria-label="Search">
-          </div>
         </div>
         <div class="dash-topbar-end">
           <button type="button" class="icon-btn" data-theme-toggle aria-label="Toggle Theme">☾</button>
           <button type="button" class="icon-btn" data-rtl-toggle aria-label="Toggle RTL">RTL</button>
           <a href="profile.html" class="dash-user-pill">
-            <span class="brand-monogram">PS</span>
+            <picture>
+              <source srcset="../../assets/images/dashboard/dash-bride-avatar.webp" type="image/webp">
+              <img src="../../assets/images/dashboard/dash-bride-avatar.jpg" alt="Priya Sharma" width="34" height="34" loading="eager">
+            </picture>
             <span class="dash-user-name">Priya Sharma</span>
           </a>
         </div>
@@ -89,11 +90,6 @@
               <li><label><input type="checkbox" checked> Instant Notification When Artist Updates Face Chart</label></li>
               <li><label><input type="checkbox" checked> Keep My Trial Portraits Under Private NDA Lock</label></li>
             </ul>
-
-            <div class="btn-group flex-center mt-4">
-              <button type="button" class="btn btn--outline" data-theme-toggle>Switch Light / Dark Theme</button>
-              <button type="button" class="btn btn--ghost" data-rtl-toggle>Toggle LTR / RTL Direction</button>
-            </div>
           </div>
 
           <!-- PASSWORD & SECURITY UPDATE -->
@@ -103,7 +99,7 @@
             <form action="#" method="post" class="mt-4" data-validate data-success-message="Your Bride Portal password has been updated.">
               <div class="form-group">
                 <label for="set-curr-pwd" class="form-label">Current Password *</label>
-                <input type="password" id="set-curr-pwd" class="form-control" value="AurelleBride2026!" required>
+                <input type="password" id="set-curr-pwd" class="form-control" value="LuminaBride2026!" required>
               </div>
               <div class="form-group">
                 <label for="set-new-pwd" class="form-label">New Password *</label>

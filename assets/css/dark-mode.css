@@ -4,6 +4,7 @@
    ========================================================================== */
 
 [data-theme="dark"] {
+  color-scheme: dark;
   --ink: #F6E9E4;
   --ink-soft: #DFC8C0;
   --ink-muted: #C6A99F;
@@ -69,6 +70,14 @@
 [data-theme="dark"] .form-control:focus {
   border-color: var(--secondary);
   box-shadow: 0 0 0 3px rgba(216, 183, 124, 0.22);
+}
+[data-theme="dark"] input[type="date"]::-webkit-calendar-picker-indicator,
+[data-theme="dark"] input[type="datetime-local"]::-webkit-calendar-picker-indicator,
+[data-theme="dark"] input[type="month"]::-webkit-calendar-picker-indicator,
+[data-theme="dark"] input[type="week"]::-webkit-calendar-picker-indicator,
+[data-theme="dark"] input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: brightness(0) invert(1);
+  cursor: pointer;
 }
 
 [data-theme="dark"] .skeleton::after {

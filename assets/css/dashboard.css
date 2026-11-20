@@ -196,6 +196,80 @@
   text-align: center;
 }
 
+/* KPI Stat Cards Alignment */
+.grid--4 .card--dash {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.grid--4 .card--dash .card-tag {
+  white-space: nowrap;
+  font-size: 0.65rem;
+  min-height: 2rem;
+  padding: 0.35rem 0.75rem;
+}
+.grid--4 .card--dash .display-price {
+  font-size: clamp(1.75rem, 2.2vw, 2.35rem);
+  white-space: nowrap;
+  min-height: 2.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-block: var(--space-2);
+}
+.grid--4 .card--dash .avatar-circle {
+  width: 46px;
+  height: 46px;
+  margin-block: var(--space-2);
+}
+.grid--4 .card--dash .card-title {
+  min-height: 2.6em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.grid--4 .card--dash .card-footer .btn {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Moodboard Look Cards Alignment (4-column dashboard grid) */
+.grid--4 .card--look {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.grid--4 .card--look .badge {
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
+  font-size: 0.64rem;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  padding: 0.3rem 0.65rem;
+  min-height: 1.9rem;
+}
+.grid--4 .card--look .card-title {
+  min-height: 3.75em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.grid--4 .card--look .card-footer .btn {
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  min-height: 44px;
+  padding: 0.55rem 0.65rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+  white-space: normal;
+  text-align: center;
+}
+
 /* Progress Ring SVG Widget */
 .progress-ring-wrap {
   position: relative;
@@ -314,6 +388,9 @@
 }
 
 @media (min-width: 1025px) {
+  [data-dash-toggle] {
+    display: none;
+  }
   .dash-sidebar {
     transform: translateX(0) !important;
   }
@@ -322,11 +399,58 @@
   }
   .dash-shell.is-collapsed .dash-sidebar {
     width: 84px;
+    overflow: hidden;
+  }
+  .dash-shell.is-collapsed .dash-sidebar-header {
+    padding-inline: 6px;
+    justify-content: center;
+    gap: 6px;
+  }
+  .dash-shell.is-collapsed .dash-sidebar-header .brand-monogram {
+    width: 34px;
+    height: 34px;
+  }
+  .dash-shell.is-collapsed .dash-sidebar-header .brand-monogram svg {
+    width: 17px;
+    height: 17px;
+  }
+  .dash-shell.is-collapsed .dash-sidebar-header [data-dash-collapse] {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    font-size: 0.85rem;
   }
   .dash-shell.is-collapsed .dash-sidebar .brand-text,
   .dash-shell.is-collapsed .dash-sidebar .dash-nav-label,
   .dash-shell.is-collapsed .dash-sidebar .dash-link-text {
     display: none;
+  }
+  .dash-shell.is-collapsed .dash-nav {
+    padding: var(--space-3) var(--space-2);
+    align-items: center;
+  }
+  .dash-shell.is-collapsed .dash-nav-link {
+    width: 48px;
+    height: 48px;
+    min-height: 48px;
+    padding: 0;
+    justify-content: center;
+  }
+  .dash-shell.is-collapsed .dash-sidebar-footer {
+    padding: var(--space-3) var(--space-2);
+  }
+  .dash-shell.is-collapsed .dash-sidebar-footer .btn {
+    min-width: 0;
+    width: 100%;
+    height: auto;
+    min-height: 40px;
+    padding: 0.45rem 0.25rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+    white-space: normal;
+    line-height: 1.15;
+    text-align: center;
   }
   .dash-shell.is-collapsed .dash-main {
     padding-inline-start: 84px;
