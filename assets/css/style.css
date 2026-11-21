@@ -1028,9 +1028,15 @@ p {
   transform: translateZ(30px);
 }
 .card-footer .btn {
-  width: auto;
-  min-width: 240px;
-  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+  max-width: 240px;
+  min-height: 52px;
+  height: auto;
+  padding-inline: var(--space-4);
+  white-space: normal;
+  text-align: center;
+  line-height: 1.25;
 }
 
 /* Section 6 Card Motion Variations */
@@ -1343,17 +1349,59 @@ p {
    10. PAGE HERO BANNER & BREADCRUMBS (INNER PAGES)
    -------------------------------------------------------------------------- */
 .page-hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: clamp(320px, 44vh, 460px);
   padding-block: var(--space-8) var(--space-7);
-  background: linear-gradient(135deg, var(--surface-2) 0%, var(--bg) 100%);
-  border-block-end: 1px solid var(--border);
+  background-color: #1A0B14;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-block-end: 1px solid var(--border-gold);
   text-align: center;
 }
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 7, 14, 0.30) 0%, rgba(20, 7, 14, 0.54) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+.page-hero--about { background-image: url("../images/heroes/hero-about.jpg"); }
+.page-hero--services { background-image: url("../images/heroes/hero-services.jpg"); }
+.page-hero--service-details { background-image: url("../images/heroes/hero-service-details.jpg"); }
+.page-hero--portfolio { background-image: url("../images/heroes/hero-portfolio.jpg"); background-position: center 25%; }
+.page-hero--look-details { background-image: url("../images/heroes/hero-look-details.jpg"); }
+.page-hero--book-now { background-image: url("../images/heroes/hero-book-now.jpg"); }
+.page-hero--booking-confirmation { background-image: url("../images/heroes/hero-booking-confirmation.jpg"); }
+.page-hero--blog { background-image: url("../images/heroes/hero-blog.jpg"); }
+.page-hero--blog-single { background-image: url("../images/heroes/hero-blog-single.jpg"); }
+.page-hero--contact { background-image: url("../images/heroes/hero-contact.jpg"); }
+.page-hero--privacy { background-image: url("../images/heroes/hero-privacy.jpg"); }
+.page-hero--terms { background-image: url("../images/heroes/hero-terms.jpg"); background-position: center 22%; }
+
 .page-hero-inner {
-  max-width: 760px;
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
   margin-inline: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.page-hero h1 {
+  color: #FFF8F3;
+  text-shadow: 0 2px 20px rgba(20, 7, 14, 0.65);
+}
+.page-hero h1 .script-accent {
+  color: #E8C78B;
+}
+.page-hero p {
+  color: rgba(255, 248, 243, 0.94);
+  text-shadow: 0 1px 14px rgba(20, 7, 14, 0.65);
 }
 .breadcrumb {
   display: inline-flex;
@@ -1370,6 +1418,19 @@ p {
 }
 .breadcrumb-sep {
   color: var(--secondary-deep);
+}
+.page-hero .breadcrumb {
+  color: rgba(255, 248, 243, 0.86);
+  text-shadow: 0 1px 10px rgba(20, 7, 14, 0.55);
+}
+.page-hero .breadcrumb a {
+  color: rgba(255, 248, 243, 0.9);
+}
+.page-hero .breadcrumb a:hover {
+  color: #E8C78B;
+}
+.page-hero .breadcrumb-sep {
+  color: #E8C78B;
 }
 
 /* --------------------------------------------------------------------------
@@ -2058,6 +2119,7 @@ textarea.form-control {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: stretch;
   }
 
   .grid--2 > *,
@@ -2065,6 +2127,12 @@ textarea.form-control {
   .grid--4 > * {
     flex: 0 0 calc((100% - var(--space-6)) / 2);
     max-width: calc((100% - var(--space-6)) / 2);
+  }
+
+  .grid--2 > .tilt-card,
+  .grid--3 > .tilt-card,
+  .grid--4 > .tilt-card {
+    height: auto;
   }
 
   .grid--2:has(> .stack-md:not(.surface-box)) {
@@ -2288,7 +2356,10 @@ textarea.form-control {
   text-align: center;
 }
 .season-month-card .card-footer .btn {
+  width: 100%;
+  min-width: 0;
   max-width: 100%;
+  padding-inline: var(--space-4);
 }
 .slot-meter {
   width: 100%;
@@ -2535,6 +2606,15 @@ textarea.form-control {
   width: 100%;
   max-width: 540px;
 }
+.auth-card > .eyebrow {
+  display: flex;
+  width: fit-content;
+  margin-inline: auto;
+}
+.auth-card > h1,
+.auth-card > p {
+  text-align: center;
+}
 .auth-topbar {
   display: flex;
   align-items: center;
@@ -2694,10 +2774,14 @@ textarea.form-control {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: stretch;
   }
   .season-calendar-grid > * {
     flex: 0 0 calc((100% - (2 * var(--space-4))) / 3);
     max-width: calc((100% - (2 * var(--space-4))) / 3);
+  }
+  .season-calendar-grid > .tilt-card {
+    height: auto;
   }
 }
 

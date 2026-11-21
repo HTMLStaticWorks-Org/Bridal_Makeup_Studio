@@ -94,6 +94,17 @@
   padding: var(--space-4);
   border-block-start: 1px solid rgba(201, 166, 107, 0.2);
 }
+.dash-sidebar-footer .btn--outline {
+  color: #FFF8F3;
+  border-color: rgba(232, 199, 139, 0.72);
+  background: rgba(255, 248, 243, 0.05);
+}
+.dash-sidebar-footer .btn--outline:hover,
+.dash-sidebar-footer .btn--outline:focus-visible {
+  background: #E8C78B;
+  border-color: #E8C78B;
+  color: #14070E;
+}
 
 /* Main Content Area */
 .dash-main {
